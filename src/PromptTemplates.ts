@@ -27,4 +27,21 @@ async function fromTemplate() {
    console.log(response);
 }
 
-fromTemplate();
+async function fromMessage() {
+   const prompt = ChatPromptTemplate.fromMessages([
+      [
+         "system",
+         "You are a helpful AI assistant. Answer all questions to the best of your ability.",
+      ],
+      ["human", "Hello, how are you doing?"],
+      ["ai", "I'm doing well, thanks!"],
+      ["human", "{input}"],
+   ]);
+
+   const chain = prompt.pipe(model);
+   const result = await chain.invoke({
+      input: "I want you to tell me which is the best age to get married ?",
+   });
+   console.log(result);
+}
+fromMessage();
