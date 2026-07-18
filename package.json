@@ -1,0 +1,20 @@
+{
+  "name": "Langchain",
+  "version": "1.0.0",
+  "description": "A simple project with Langchain.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/rag-with-pinecone-db/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.22.5",
+    "typescript": "^6.0.3"
+  }
+}
