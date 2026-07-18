@@ -4,12 +4,13 @@
   "description": "A simple project with Langchain.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/rag-with-pinecone-db/index.ts"
+    "dev": "ts-node-dev --respawn src/model.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "langchain": "^1.5.3"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
