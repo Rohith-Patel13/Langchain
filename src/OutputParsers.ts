@@ -44,19 +44,20 @@ async function commaSeparatedParser() {
 
 
 async function structuredParser() {
-  const templatePrompt = ChatPromptTemplate.fromTemplate(
-    `Extract information from the following text: {text}.`,
-  );
-
   const outputParser = StructuredOutputParser.fromNamesAndDescriptions({
     title: "The title of the article",
     summary: "A summary of the article",
   });
 
+  const templatePrompt = ChatPromptTemplate.fromTemplate(
+    `Extract information from the following text: {text}.\n{format_instructions}`,
+  );
+
   const chain = templatePrompt.pipe(model).pipe(outputParser);
 
   const response = await chain.invoke({
     text: "Badminton",
+    format_instructions: outputParser.getFormatInstructions(),
   });
 
   console.log(response);
