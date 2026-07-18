@@ -10,6 +10,7 @@ const agent = createAgent({
     model: "gemini-2.5-flash",
     apiKey: process.env.GOOGLE_API_KEY!,
   }),
+  tools: [{ googleSearch: {} }],
 });
 
 async function main() { 
