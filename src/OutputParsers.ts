@@ -3,7 +3,7 @@ import "dotenv/config";
 // First install: npm install langchain zod @langchain/google-genai
 import { ChatPromptTemplate } from "@langchain/core/prompts";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { CommaSeparatedListOutputParser, StringOutputParser } from "@langchain/core/output_parsers";
+import { CommaSeparatedListOutputParser, StringOutputParser, StructuredOutputParser } from "@langchain/core/output_parsers";
 
 const model = new ChatGoogleGenerativeAI({
   model: "gemini-2.5-flash",
@@ -42,4 +42,23 @@ async function commaSeparatedParser() {
   console.log(response);
 }
 
-commaSeparatedParser();
+
+async function structuredParser() {
+  const templatePrompt = ChatPromptTemplate.fromTemplate(
+    `Extract information from the following text: {text}.`,
+  );
+
+  const outputParser = StructuredOutputParser.fromNamesAndDescriptions({
+    title: "The title of the article",
+    summary: "A summary of the article",
+  });
+
+  const chain = templatePrompt.pipe(model).pipe(outputParser);
+
+  const response = await chain.invoke({
+    text: "Badminton",
+  });
+
+  console.log(response);
+}
+structuredParser();
