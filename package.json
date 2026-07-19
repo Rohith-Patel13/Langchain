@@ -4,7 +4,7 @@
   "description": "A simple project with Langchain.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/RAG/Web.ts"
+    "dev": "ts-node-dev --respawn src/RAG/Pdf.ts"
   },
   "author": "",
   "license": "ISC",
