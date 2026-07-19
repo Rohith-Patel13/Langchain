@@ -4,11 +4,12 @@
   "description": "A simple project with Langchain.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/OutputParsers.ts"
+    "dev": "ts-node-dev --respawn src/RAG/Basics.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@langchain/classic": "^1.0.40",
     "@langchain/google-genai": "^2.2.0",
     "dotenv": "^17.4.2",
     "langchain": "^1.5.3"
